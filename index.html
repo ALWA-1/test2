@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الطعام | Menu</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- خلفية الجسيمات -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- تأثير الضباب العلوي -->
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-bottom"></div>
+
+    <header class="main-header">
+        <div class="header-inner">
+            <div class="logo-wrap">
+                <div class="logo-ornament">✦</div>
+                <h1 class="logo-text">مِنيو</h1>
+                <div class="logo-ornament">✦</div>
+            </div>
+            <div class="logo-sub">F I N E &nbsp; D I N I N G</div>
+            <div class="decorative-divider">
+                <span class="line"></span>
+                <span class="diamond"></span>
+                <span class="line"></span>
+            </div>
+            <p class="welcome-text">مرحباً بكم في مطعمنا — حيث تلتقي الأصالة بالإبداع في كل لقمة</p>
+        </div>
+    </header>
+
+    <!-- تاب الأقسام -->
+    <nav class="category-nav" id="categoryNav">
+        <button class="cat-btn active" data-cat="all">الكل</button>
+        <button class="cat-btn" data-cat="main">الرئيسي</button>
+        <button class="cat-btn" data-cat="fast">وجبات سريعة</button>
+        <button class="cat-btn" data-cat="drinks">مشروبات</button>
+        <button class="cat-btn" data-cat="dessert">حلويات</button>
+    </nav>
+
+    <main id="menuContainer" class="menu-grid"></main>
+
+    <footer class="main-footer">
+        <div class="footer-brand">مِنيو</div>
+        <div class="footer-divider"></div>
+        <div class="footer-links">
+            <div class="footer-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>+968 123 456 789</span>
+            </div>
+            <div class="footer-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>123 شارع المطاعم، المدينة</span>
+            </div>
+            <div class="footer-item">
+                <i class="fas fa-clock"></i>
+                <span>يومياً من 12 ظهراً — 12 منتصف الليل</span>
+            </div>
+        </div>
+        <p class="footer-copy">© 2025 مِنيو — جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
