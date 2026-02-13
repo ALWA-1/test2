@@ -5,19 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قائمة الطعام | Menu</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
 
-    <!-- خلفية الجسيمات -->
     <canvas id="bgCanvas"></canvas>
 
-    <!-- تأثير الضباب العلوي -->
     <div class="ambient-glow glow-top"></div>
     <div class="ambient-glow glow-bottom"></div>
 
@@ -38,16 +35,19 @@
         </div>
     </header>
 
-    <!-- تاب الأقسام -->
     <nav class="category-nav" id="categoryNav">
         <button class="cat-btn active" data-cat="all">الكل</button>
-        <button class="cat-btn" data-cat="main">الرئيسي</button>
-        <button class="cat-btn" data-cat="fast">وجبات سريعة</button>
+        <button class="cat-btn" data-cat="pizza">بيتزا</button>
+        <button class="cat-btn" data-cat="crepe">كريب</button>
         <button class="cat-btn" data-cat="drinks">مشروبات</button>
-        <button class="cat-btn" data-cat="dessert">حلويات</button>
-    </nav>
+        </nav>
 
-    <main id="menuContainer" class="menu-grid"></main>
+    <main id="menuContainer" class="menu-grid">
+        <div style="grid-column: 1/-1; text-align: center; color: var(--gold);">
+            <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+            <p style="margin-top: 10px;">جاري تحضير القائمة...</p>
+        </div>
+    </main>
 
     <footer class="main-footer">
         <div class="footer-brand">مِنيو</div>
@@ -66,7 +66,7 @@
                 <span>يومياً من 12 ظهراً — 12 منتصف الليل</span>
             </div>
         </div>
-        <p class="footer-copy">© 2025 مِنيو — جميع الحقوق محفوظة</p>
+        <p class="footer-copy">© 2026 مِنيو — جميع الحقوق محفوظة</p>
     </footer>
 
     <script src="script.js"></script>
