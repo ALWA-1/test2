@@ -105,6 +105,55 @@ function initCategoryNav() {
 }
 
 // ==========================================
+// FETCH RESTAURANT INFO (جديد: جلب الإعدادات)
+// ==========================================
+async function fetchRestaurantSettings() {
+    try {
+        // جلب الصف الأول فقط من جدول الإعدادات
+        const { data, error } = await _supabase
+            .from('restaurant_info')
+            .select('*')
+            .limit(1)
+            .single();
+
+        if (error) {
+            // تجاهل الخطأ بصمت إذا لم يكن الجدول موجوداً بعد
+            console.warn('Could not fetch settings (maybe table is empty):', error.message);
+            return;
+        }
+
+        if (!data) return;
+
+        // تحديث النصوص في الصفحة إذا توفرت البيانات
+        if (data.name) {
+            const nameEl = document.getElementById('restName');
+            const footerNameEl = document.getElementById('restNameFooter');
+            if (nameEl) nameEl.textContent = data.name;
+            if (footerNameEl) footerNameEl.textContent = data.name;
+            document.title = `${data.name} | القائمة`;
+        }
+        
+        if (data.phone) {
+            const phoneEl = document.getElementById('restPhone');
+            if (phoneEl) phoneEl.textContent = data.phone;
+        }
+
+        if (data.address) {
+            const addressEl = document.getElementById('restAddress');
+            if (addressEl) addressEl.textContent = data.address;
+        }
+
+        if (data.hours) {
+            const hoursEl = document.getElementById('restHours');
+            if (hoursEl) hoursEl.textContent = data.hours;
+        }
+
+    } catch (err) {
+        console.error('Error fetching settings:', err);
+    }
+}
+
+// ==========================================
 // BACKGROUND ANIMATION (الجسيمات الذهبية)
 // ==========================================
 function initBackground() {
@@ -171,6 +220,7 @@ function initBackground() {
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     initBackground();      // تشغيل الخلفية
-    fetchAndRenderMenu();  // جلب البيانات وعرضها
-    initCategoryNav();     // تفعيل أزرار التصنيفات
+    fetchAndRenderMenu();  // جلب المنيو وعرضه
+    initCategoryNav();     // تفعيل الفلاتر
+    fetchRestaurantSettings(); // <-- تشغيل دالة جلب إعدادات المطعم
 });
